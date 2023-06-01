@@ -3,29 +3,37 @@ import { Container, Row, Col, Card, Button, Accordion } from 'react-bootstrap';
 import "../assets/styles/GroupCard.css"
 
 
-function GroupCard() {
+function GroupCard(props) {
+  const {id, cityName, advisors, coordinators, state}=props;
+
+  const renderAdvisors = ()=>{
+    let render = [];
+    advisors.forEach(element => {
+      render.push(<Col xs={6} className='colgroupcard'>{element}</Col>)
+    });
+    return render;
+  }
+  function renderAccordion2(){
+    // completar
+  }
+
+
   return (
 
     <Container fluid className="background">
       <Card className="CartaGroupcard">
         <Container fluid className='cont1'>
           <Row xs={3} md={2} className=''>
-
             <Col className='PrimeraColumna'>Lista Grupos</Col>
           </Row>
         </Container>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
-            <Accordion.Header>Grupo Numero 1</Accordion.Header>
+            <Accordion.Header>{`Grupo Numero ${id}`}</Accordion.Header>
             <Accordion.Body>
               <Container fluid className='cont1'>
                 <Row xs={3} md={2} className=''>
-
-                  <Col xs={12} md={12} className='PrimeraColumna'>Carlos Paz</Col>
-
-
-
-
+                  <Col xs={12} md={12} className='PrimeraColumna'>{cityName}</Col>
                 </Row>
               </Container>
               <Container fluid className='cont1'>
@@ -40,11 +48,7 @@ function GroupCard() {
               </Container>
               <Container fluid>
                 <Row xs={2} md={2} className='rowgroupcard' >
-
-                  <Col className='colgroupcard'>Mateo</Col>
-
-
-                  <Col className='colgroupcard'>Laura</Col>
+                  {renderAdvisors()   }
 
                 </Row>
               </Container>
@@ -74,7 +78,7 @@ function GroupCard() {
                   <Col className='colgroupcard'>Jose</Col>
 
 
-                  <Col className='colgroupcard'>Pedro</Col>
+                  <Col className='colgroupcard'></Col>
 
                 </Row>
               </Container>
@@ -94,7 +98,7 @@ function GroupCard() {
             </Accordion.Body>
           </Accordion.Item>
 
-          <Accordion.Item eventKey="1">
+          {/* <Accordion.Item eventKey="1">
             <Accordion.Header>Grupo Numero 2</Accordion.Header>
             <Accordion.Body>
               <Container fluid className='cont1'>
@@ -189,7 +193,7 @@ function GroupCard() {
 
 
             </Accordion.Body>
-          </Accordion.Item>
+          </Accordion.Item> */}
 
         </Accordion>
 
@@ -201,4 +205,3 @@ function GroupCard() {
 }
 
 export default GroupCard;
-
