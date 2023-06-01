@@ -3,6 +3,6 @@ from .api import VisitViewSet
 
 
 router = routers.DefaultRouter()
-router.register('api/djangoapp', VisitViewSet, 'djangoapp')
+router.register('api/visit', VisitViewSet, 'visit')
 
 urlpatterns = router.urls
